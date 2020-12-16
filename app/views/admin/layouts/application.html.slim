@@ -1,17 +1,15 @@
 doctype html
 html
   head
-    - if yield(:title).present? 
-      title = yield(:title)
-    - else 
-      title = COMPANY_NAME
+    title RailsSlimBlogTutorial
     == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     == javascript_pack_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
-  body.layout-top-nav
+  body.hold-transition.sidebar-mini.layout-fixed
     .wrapper
-      = render 'layouts/header'
+      = render 'admin/layouts/header'
+      = render 'admin/layouts/sidebar'
       .content-wrapper
         .content-header
-          .container
+          .container-fluid
             = yield 
